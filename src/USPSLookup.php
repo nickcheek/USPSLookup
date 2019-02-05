@@ -53,13 +53,14 @@ class USPSLookup
     {
 	    $CityState = new \SimpleXMLElement("<CityStateLookupRequest></CityStateLookupRequest>");
 		$CityState->addAttribute('USERID', self::$user);
-		$ZipCode = $CityState->addChild('ZipCode');
-		$i = 0;
-		foreach($zip as $z){
-			$ZipCode->addAttribute('ID', $i);
+		
+		foreach($zip as $k=>$z){
+			$ZipCode = $CityState->addChild('ZipCode');
+			$ZipCode->addAttribute('ID', $k);
 			$Zip  = $ZipCode->addChild('Zip5',$z);
-			$i++;
+			
 		}
+		
 		$url = 'http://production.shippingapis.com/ShippingAPITest.dll?API=CityStateLookup&XML='.$CityState->asXML();
 		$response = simplexml_load_file($url);
 			
