@@ -65,12 +65,28 @@ class USPSLookup
 		return $response;		
 	}
 	
-		public static function Track($trackingnumber)
+	public static function Track($trackingnumber)
 	{
 		$track = new \SimpleXMLElement("<TrackRequest></TrackRequest>");
 		$track->addAttribute('USERID', self::$user);
 		$pack = $track->addChild('TrackID');
 		$pack->addAttribute('ID', $trackingnumber);
+		$url = 'https://secure.shippingapis.com/ShippingAPI.dll?API=TrackV2&XML='.$track->asXML();
+		$response = simplexml_load_file($url);
+			
+		return $response;		
+	}
+	
+	public static function TrackMultiple($trackingarray)
+	{
+		$track = new \SimpleXMLElement("<TrackRequest></TrackRequest>");
+		$track->addAttribute('USERID', self::$user);
+		
+		foreach($trackingarray as $trackingnumber){
+			$pack = $track->addChild('TrackID');
+			$pack->addAttribute('ID', $trackingnumber);
+		}
+		
 		$url = 'https://secure.shippingapis.com/ShippingAPI.dll?API=TrackV2&XML='.$track->asXML();
 		$response = simplexml_load_file($url);
 			

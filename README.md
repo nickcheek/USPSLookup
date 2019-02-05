@@ -1,8 +1,6 @@
-# Very short description of the package
+# USPS API Wrapper
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/nickcheek/uspslookup.svg?style=flat-square)](https://packagist.org/packages/nickcheek/uspslookup)
-[![Build Status](https://img.shields.io/travis/nickcheek/uspslookup/master.svg?style=flat-square)](https://travis-ci.org/nickcheek/uspslookup)
-[![Quality Score](https://img.shields.io/scrutinizer/g/nickcheek/uspslookup.svg?style=flat-square)](https://scrutinizer-ci.com/g/nickcheek/uspslookup)
 [![Total Downloads](https://img.shields.io/packagist/dt/nickcheek/uspslookup.svg?style=flat-square)](https://packagist.org/packages/nickcheek/uspslookup)
 
 USPS Verify Address
@@ -56,13 +54,24 @@ var_dump($respone);
 ```
 
 ### Available Methods
-Track a package
+Track a Package
 
 ``` php
 $lookup = new \Nickcheek\USPSLookup\USPSLookup();
 $find = $lookup->Track('9405511206019825745000');
 
 ```
+
+Track Multiple Packages
+
+``` php
+$lookup = new \Nickcheek\USPSLookup\USPSLookup();
+	    
+$track = array("9405511206019825745000","9405511206019825304382");
+$find = $lookup->TrackMultiple($track);
+
+```
+
 Find City/State that zip code belongs to
 
 ```php
