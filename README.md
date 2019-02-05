@@ -92,7 +92,7 @@ First Class,First Class Commercial,First Class  HFP Commercial,Priority,Priority
 
 ```php
 $lookup = new \Nickcheek\USPSLookup\USPSLookup();
-$find = $lookup->GetRate('72204','72019','1','3','Priority');
+$find = $lookup->GetRate('72204','37501','1','3','LETTER');
 
 ```
 
