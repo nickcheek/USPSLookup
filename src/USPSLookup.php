@@ -36,13 +36,30 @@ class USPSLookup
 		return $response;		
 	}
 	
-	 public static function CityState($zip)
+	public static function CityState($zip)
     {
 	    $CityState = new \SimpleXMLElement("<CityStateLookupRequest></CityStateLookupRequest>");
 		$CityState->addAttribute('USERID', self::$user);
 		$ZipCode = $CityState->addChild('ZipCode');
 		$ZipCode->addAttribute('ID', '0');
 		$Zip  = $ZipCode->addChild('Zip5',$zip);
+		$url = 'http://production.shippingapis.com/ShippingAPITest.dll?API=CityStateLookup&XML='.$CityState->asXML();
+		$response = simplexml_load_file($url);
+			
+		return $response;		
+	}
+
+	public static function CityStateMultiple($zip)
+    {
+	    $CityState = new \SimpleXMLElement("<CityStateLookupRequest></CityStateLookupRequest>");
+		$CityState->addAttribute('USERID', self::$user);
+		$ZipCode = $CityState->addChild('ZipCode');
+		$i = 0;
+		foreach($zip as $z){
+			$ZipCode->addAttribute('ID', $i);
+			$Zip  = $ZipCode->addChild('Zip5',$z);
+			$i++;
+		}
 		$url = 'http://production.shippingapis.com/ShippingAPITest.dll?API=CityStateLookup&XML='.$CityState->asXML();
 		$response = simplexml_load_file($url);
 			

@@ -100,6 +100,16 @@ $lookup = new \Nickcheek\USPSLookup\USPSLookup();
 $find = $lookup->CityState('72019');
 
 ```
+
+Find City/State of multiple zip codes
+
+```php
+$zips = array('72204','72203');
+$lookup = new \Nickcheek\USPSLookup\USPSLookup();
+$find = $lookup->CityState($zips);
+
+```
+
 Find Zip Code of address
 
 ```php 
