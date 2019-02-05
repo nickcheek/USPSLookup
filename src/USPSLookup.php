@@ -92,6 +92,26 @@ class USPSLookup
 			
 		return $response;		
 	}
-
+	
+	public static function GetRate($to,$from,$pounds,$ounces,$service)
+	{
+		$rate = new \SimpleXMLElement("<RateV4Request></RateV4Request>");
+		$rate->addAttribute('USERID', self::$user);
+		$revision = $rate->addChild("Revision",'2');
+		$pack = $rate->addChild('Package');
+		$pack->addAttribute('ID','0');
+		$pack->addChild('Service',$service);
+		$pack->addChild('ZipOrigination',$from);
+		$pack->addChild('ZipDestination',$to);
+		$pack->addChild('Pounds',$pounds);
+		$pack->addChild('Ounces',$ounces);
+		$pack->addChild('Container','VARIABLE');
+		$pack->addChild('Size','Regular');
+		
+		$url = 'https://secure.shippingapis.com/ShippingAPI.dll?API=TrackV2&XML='.$track->asXML();
+		$response = simplexml_load_file($url);
+			
+		return $response;		
+	}
 	
 }

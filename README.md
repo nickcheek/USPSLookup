@@ -66,7 +66,6 @@ Track Multiple Packages
 
 ``` php
 $lookup = new \Nickcheek\USPSLookup\USPSLookup();
-	    
 $track = array("9405511206019825745000","9405511206019825304382");
 $find = $lookup->TrackMultiple($track);
 
@@ -85,6 +84,16 @@ Find Zip Code of address
 $lookup = new \Nickcheek\USPSLookup\USPSLookup();
 $find = $lookup->ZipCode('1234 Anystreet','','Little Rock','AR');
 	   
+```
+Get Rate of Package
+($to,$from,$pounds,$ounces,$service)
+Available services: 
+First Class,First Class Commercial,First Class  HFP Commercial,Priority,Priority Commercial,Priority Cpp,Priority HFP Commercial,Retail Ground,etc...
+
+```php
+$lookup = new \Nickcheek\USPSLookup\USPSLookup();
+$find = $lookup->GetRate('72204','72019','1','3','Priority');
+
 ```
 
 ### Changelog
