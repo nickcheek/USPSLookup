@@ -1,54 +1,12 @@
 {
     "name": "nickcheek/uspslookup",
-    "description": "Simple lookup using USPS API",
-    "keywords": [
-        "nickcheek",
-        "uspslookup"
-    ],
-    "homepage": "https://github.com/nickcheek/uspslookup",
-    "license": "MIT License (MIT)",
-    "type": "library",
+    "description": "Address Verify with USPS API",
     "authors": [
         {
-            "name": "Nicholas Cheek",
-            "email": "nick@nicholascheek.com",
-            "role": "Developer"
+            "name": "Nick",
+            "email": "nick@nicholascheek.com"
         }
     ],
-    "require": {
-        "php": "^7.1",
-        "illuminate/support": "5.7.*"
-    },
-    "require-dev": {
-        "orchestra/testbench": "3.7.*",
-        "phpunit/phpunit": "^7.0"
-    },
-    "autoload": {
-        "psr-4": {
-            "Nickcheek\\USPSLookup\\": "src"
-        }
-    },
-    "autoload-dev": {
-        "psr-4": {
-            "Nickcheek\\USPSLookup\\Tests\\": "tests"
-        }
-    },
-    "scripts": {
-        "test": "vendor/bin/phpunit",
-        "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
-
-    },
-    "config": {
-        "sort-packages": true
-    },
-    "extra": {
-        "laravel": {
-            "providers": [
-                "Nickcheek\\USPSLookup\\USPSLookupServiceProvider"
-            ],
-            "aliases": {
-                "USPSLookup": "Nickcheek\\USPSLookup\\USPSLookupFacade"
-            }
-        }
-    }
+    "minimum-stability": "dev",
+    "require": {}
 }
