@@ -7,6 +7,10 @@
 
 USPS Verify Address
 
+## About
+
+This was quickly thrown together for a project.  Feel free to add to it as you see fit.  
+
 ## Installation
 
 You can install the package via composer:
@@ -51,21 +55,37 @@ var_dump($respone);
 
 ```
 
-### Testing
+### Available Methods
+Track a package
 
+``` php
+$lookup = new \Nickcheek\USPSLookup\USPSLookup();
+$find = $lookup->Track('9405511206019825745000');
 
+```
+Find City/State that zip code belongs to
+
+```php
+$lookup = new \Nickcheek\USPSLookup\USPSLookup();
+$find = $lookup->CityState('72019');
+
+```
+Find Zip Code of address
+
+```php 
+$lookup = new \Nickcheek\USPSLookup\USPSLookup();
+$find = $lookup->ZipCode('1234 Anystreet','','Little Rock','AR');
+	   
+```
 
 ### Changelog
 
 Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recently.
 
-## Contributing
-
-Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
 
 ### Security
 
-If you discover any security related issues, please email nick@nicholascheek.com instead of using the issue tracker.
+If you discover any security related issues, please email nick@nicholascheek.com.
 
 ## Credits
 
