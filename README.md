@@ -54,6 +54,15 @@ var_dump($respone);
 ```
 
 ### Available Methods
+Verify Address exists
+
+``` php
+$lookup = new \Nickcheek\USPSLookup\USPSLookup();
+$find = $lookup->Verify($address,$address2,$city,$state,$zip);
+
+```
+
+
 Track a Package
 
 ``` php
