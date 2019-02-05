@@ -17,6 +17,19 @@ You can install the package via composer:
 composer require nickcheek/uspslookup
 
 ```
+If you're using laravel, add the service provider to config/app.php
+```php
+Nickcheek\USPSLookup\USPSLookupServiceProvider::class,
+```
+Then the facade
+```php
+'USPSLookup' =>  Nickcheek\USPSLookup\Facades\USPSLookup::class
+```
+Then add it to the top of your controller
+```php
+use \Nickcheek\USPSLookup\USPSLookup;
+'''
+
 Then add your USPS Username to your env file
 
 ```bash
@@ -25,7 +38,7 @@ USPS=xxxxxxxxxx
 ```
 
 ## Usage
-If you're not using laravel, you can call the lookup with your username instead of using the .env file.
+If you're not using laravel, you can set the USPS username instead of using the .env file.
 
 ``` php
 $lookup = new \Nickcheek\USPSLookup\USPSLookup('XXXXXXXXX');
@@ -38,7 +51,7 @@ If you are using laravel and set your username in your .env file, you can call t
 
 ``` php
 
-$lookup = new \Nickcheek\USPSLookup\USPSLookup();
+$lookup = new USPSLookup();
 $response = $lookup->Verify('123 Anystreet','','Little Rock','AR','72204');
 
 var_dump($response);
