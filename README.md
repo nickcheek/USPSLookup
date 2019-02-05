@@ -23,12 +23,31 @@ USPS=xxxxxxxxxx
 ```
 
 ## Usage
+If you're not using laravel, you can call the lookup with your username instead of using the .env file.
+
+``` php
+$lookup = new \Nickcheek\USPSLookup\USPSLookup('XXXXXXXXX');
+$response = $lookup->Verify('123 Anystreet','','Little Rock','AR','72204');
+
+var_dump($response);
+
+```
+If you are using laravel and set your username in your .env file, you can call the class without it.
 
 ``` php
 
-$response = \Nickcheek\USPSLookup\USPSLookup::Verify($address,$address2,$city,$state,$zip);
+$lookup = new \Nickcheek\USPSLookup\USPSLookup();
+$response = $lookup->Verify('123 Anystreet','','Little Rock','AR','72204');
 
 var_dump($response);
+
+```
+OR
+
+``` php
+$response = \Nickcheek\USPSLookup\USPSLookup::Verify($address,$address2,$city,$state,$zip);
+
+var_dump($respone);
 
 ```
 

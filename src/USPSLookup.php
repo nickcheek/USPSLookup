@@ -4,17 +4,23 @@ namespace Nickcheek\USPSLookup;
 
 class USPSLookup
 {
-	Private $address;
-	Private $address2;
-	Private $city;
-	Private $state;
-	Private $zip;
 	
+	protected static $user;
+	
+	
+	
+	public function __construct($user = '') 
+	{
+		self::$user = $user;
+		if($user == ''){
+			self::$user = env('USPS');
+		}
+	}
 
     public static function Verify($address,$address2,$city,$state,$zip)
     {
 	    $Address = new \SimpleXMLElement("<AddressValidateRequest></AddressValidateRequest>");
-		$Address->addAttribute('USERID', env('USPS'));
+		$Address->addAttribute('USERID', self::$user);
 		$Revision = $Address->addChild('Revision','1');
 		$add = $Address->addChild('Address');
 		$add->addAttribute('ID', '0');
@@ -28,7 +34,7 @@ class USPSLookup
 		$url = 'http://production.shippingapis.com/ShippingAPITest.dll?API=Verify&XML='.$Address->asXML();
 		$response = simplexml_load_file($url);
 			
-		return $response;			
+		return $response;		
 			
 	}
 }
