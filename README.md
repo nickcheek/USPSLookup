@@ -13,14 +13,16 @@ You can install the package via composer:
 
 ```bash
 composer require nickcheek/uspslookup
+
+add your USPS username to your env file
+
+USPS=xxxxxxxxxx
+
 ```
 
 ## Usage
 
 ``` php
-add your USPS username to your .env file
-
-USPS=xxxxxxxxxx
 
 $response = \Nickcheek\USPSLookup\USPSLookup::Verify($address,$address2,$city,$state,$zip);
 
