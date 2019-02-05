@@ -25,7 +25,7 @@ Then the facade
 ```php
 'USPSLookup' =>  Nickcheek\USPSLookup\Facades\USPSLookup::class
 ```
-Then add it to the top of your controller
+Then add the reference to the top of your controller
 ```php
 use \Nickcheek\USPSLookup\USPSLookup;
 '''
