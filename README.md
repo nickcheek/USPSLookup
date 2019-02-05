@@ -18,7 +18,14 @@ composer require nickcheek/uspslookup
 ## Usage
 
 ``` php
-\USPSLookup::Verify($address,$address2,$city,$state,$zip);
+add your USPS username to your .env file
+
+USPS=xxxxxxxxxx
+
+$response = \Nickcheek\USPSLookup\USPSLookup::Verify($address,$address2,$city,$state,$zip);
+
+var_dump($response);
+
 ```
 
 ### Testing

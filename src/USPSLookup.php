@@ -11,7 +11,7 @@ class USPSLookup
 	Private $zip;
 	
 
-    Class Verify($address,$address2,$city,$state,$zip)
+    public static function Verify($address,$address2,$city,$state,$zip)
     {
 	    $Address = new \SimpleXMLElement("<AddressValidateRequest></AddressValidateRequest>");
 		$Address->addAttribute('USERID', env('USPS'));
