@@ -1,14 +1,10 @@
 <?php
 
-namespace Nickcheek\USPSLookup\Tests;
+require __DIR__ . '/vendor/autoload.php';
 
-use PHPUnit\Framework\TestCase;
-
-class ExampleTest extends TestCase
-{
-    /** @test */
-    public function true_is_true()
-    {
-        $this->assertTrue(true);
-    }
-}
+$lookup = new \Nickcheek\USPSLookup\USPSLookup();
+$find = $lookup->Verify('3017 Province','','Benton','AR','72019');
+	    
+echo "<pre>";
+var_dump($find); 
+echo "</pre>";
