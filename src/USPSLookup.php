@@ -108,7 +108,7 @@ class USPSLookup
 		$pack->addChild('Container','VARIABLE');
 		$pack->addChild('Size','Regular');
 		
-		$url = 'https://secure.shippingapis.com/ShippingAPI.dll?API=TrackV2&XML='.$track->asXML();
+		$url = 'https://secure.shippingapis.com/ShippingAPI.dll?API=TrackV2&XML='.$rate->asXML();
 		$response = simplexml_load_file($url);
 			
 		return $response;		
