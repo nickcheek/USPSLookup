@@ -14,10 +14,12 @@ You can install the package via composer:
 ```bash
 composer require nickcheek/uspslookup
 
-add your USPS username to your env file
+```
+Then add your USPS Username to your env file
+
+```bash
 
 USPS=xxxxxxxxxx
-
 ```
 
 ## Usage
