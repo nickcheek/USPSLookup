@@ -28,12 +28,12 @@ Then the facade
 Then add the reference to the top of your controller
 ```php
 use \Nickcheek\USPSLookup\USPSLookup;
-'''
+```
 
 Then add your USPS Username to your env file
 
-``` bash
 
+```bash
 USPS=xxxxxxxxxx
 ```
 
