@@ -32,7 +32,7 @@ use \Nickcheek\USPSLookup\USPSLookup;
 
 Then add your USPS Username to your env file
 
-```bash
+``` bash
 
 USPS=xxxxxxxxxx
 ```
