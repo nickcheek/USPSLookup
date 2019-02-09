@@ -9,16 +9,16 @@ class USPSLookup
 	
 	public function __construct($user = '') 
 	{
-		$this->$user = $user;
+		$this->user = $user;
 		if($user == ''){
-			$this->$user = env('USPS');
+			$this->user = env('USPS');
 		}
 	}
 
     public  function Verify($address,$address2,$city,$state,$zip)
     {
 	    $Address = new \SimpleXMLElement("<AddressValidateRequest></AddressValidateRequest>");
-		$Address->addAttribute('USERID', $this->$user);
+		$Address->addAttribute('USERID', $this->user);
 		$Revision = $Address->addChild('Revision','1');
 		$add = $Address->addChild('Address');
 		$add->addAttribute('ID', '0');
@@ -37,7 +37,7 @@ class USPSLookup
 	public  function CityState($zip)
     {
 	    $CityState = new \SimpleXMLElement("<CityStateLookupRequest></CityStateLookupRequest>");
-		$CityState->addAttribute('USERID', $this->$user);
+		$CityState->addAttribute('USERID', $this->user);
 		$ZipCode = $CityState->addChild('ZipCode');
 		$ZipCode->addAttribute('ID', '0');
 		$Zip  = $ZipCode->addChild('Zip5',$zip);
@@ -50,7 +50,7 @@ class USPSLookup
 	public  function CityStateMultiple($zip)
     {
 	    $CityState = new \SimpleXMLElement("<CityStateLookupRequest></CityStateLookupRequest>");
-		$CityState->addAttribute('USERID', $this->$user);
+		$CityState->addAttribute('USERID', $this->user);
 		
 		foreach($zip as $k=>$z){
 			$ZipCode = $CityState->addChild('ZipCode');
@@ -68,7 +68,7 @@ class USPSLookup
 	public  function ZipCode($address,$address2,$city,$state)
 	{
 		$Address = new \SimpleXMLElement("<ZipCodeLookupRequest></ZipCodeLookupRequest>");
-		$Address->addAttribute('USERID', $this->$user);
+		$Address->addAttribute('USERID', $this->user);
 		$add = $Address->addChild('Address');
 		$add->addAttribute('ID', '0');
 		$a1 = $add->addChild('Address1',$address);
@@ -84,7 +84,7 @@ class USPSLookup
 	public  function Track($trackingnumber)
 	{
 		$track = new \SimpleXMLElement("<TrackRequest></TrackRequest>");
-		$track->addAttribute('USERID', $this->$user);
+		$track->addAttribute('USERID', $this->user);
 		$pack = $track->addChild('TrackID');
 		$pack->addAttribute('ID', $trackingnumber);
 		$url = 'https://secure.shippingapis.com/ShippingAPI.dll?API=TrackV2&XML='.$track->asXML();
@@ -96,7 +96,7 @@ class USPSLookup
 	public  function TrackMultiple($trackingarray)
 	{
 		$track = new \SimpleXMLElement("<TrackRequest></TrackRequest>");
-		$track->addAttribute('USERID', $this->$user);
+		$track->addAttribute('USERID', $this->user);
 		
 		foreach($trackingarray as $trackingnumber){
 			$pack = $track->addChild('TrackID');
@@ -112,7 +112,7 @@ class USPSLookup
 	public  function GetRate($to,$from,$pounds,$ounces,$service)
 	{
 		$rate = new \SimpleXMLElement("<RateV4Request></RateV4Request>");
-		$rate->addAttribute('USERID', $this->$user);
+		$rate->addAttribute('USERID', $this->user);
 		$revision = $rate->addChild("Revision",'2');
 		$pack = $rate->addChild('Package');
 		$pack->addAttribute('ID','0');
