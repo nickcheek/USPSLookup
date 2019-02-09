@@ -62,7 +62,8 @@ var_dump($response);
 OR
 
 ``` php
-$response = \Nickcheek\USPSLookup\USPSLookup::Verify($address,$address2,$city,$state,$zip);
+$usps = \Nickcheek\USPSLookup\USPSLookup;
+$response = $usps->Verify($address,$address2,$city,$state,$zip);
 
 var_dump($respone);
 
