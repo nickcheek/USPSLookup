@@ -9,7 +9,7 @@ USPS Verify Address
 
 ## About
 
-This was quickly thrown together for a project.  Feel free to add to it as you see fit.  
+This was quickly thrown together for a project.  Feel free to add to it as you see fit.  I recently refactored each Service so I can add on as time goes. 
 
 ## Installation
 
@@ -37,7 +37,7 @@ If you're not using laravel, you can set the USPS username instead of using the 
 
 ``` php
 $lookup = new \Nickcheek\USPSLookup\USPSLookup('XXXXXXXXX');
-$response = $lookup->Verify('123 Anystreet','','Little Rock','AR','72204');
+$response = $lookup->Address()->verify('123 Anystreet','','Little Rock','AR','72204');
 
 var_dump($response);
 
@@ -46,7 +46,7 @@ If you added the reference at the top of your controller, you can use:
 
 ``` php
 $lookup = new USPSLookup('XXXXXXXXX');
-$response = $lookup->Verify('123 Anystreet','','Little Rock','AR','72204');
+$response = $lookup->Address()->verify('123 Anystreet','','Little Rock','AR','72204');
 
 var_dump($response);
 
@@ -74,7 +74,7 @@ If you are using laravel and set your username in your .env file, you can call t
 ``` php
 
 $lookup = new USPSLookup();
-$response = $lookup->Verify('123 Anystreet','','Little Rock','AR','72204');
+$response = $lookup->Address()->verify('123 Anystreet','','Little Rock','AR','72204');
 
 var_dump($response);
 
@@ -85,7 +85,7 @@ var_dump($response);
 Verify Address exists
 
 ``` php
-$lookup = new \Nickcheek\USPSLookup\USPSLookup();
+$lookup = new \Nickcheek\USPSLookup\USPSLookup('XXXXXXXXX');
 $find = $lookup->Verify($address,$address2,$city,$state,$zip);
 
 ```
@@ -94,25 +94,25 @@ $find = $lookup->Verify($address,$address2,$city,$state,$zip);
 Track a Package
 
 ``` php
-$lookup = new \Nickcheek\USPSLookup\USPSLookup();
-$find = $lookup->Track('9405511206019825745000');
+$lookup = new \Nickcheek\USPSLookup\USPSLookup('XXXXXXXXX');
+$find = $lookup->Tracking()->track('9405511206019825745000');
 
 ```
 
 Track Multiple Packages
 
 ``` php
-$lookup = new \Nickcheek\USPSLookup\USPSLookup();
+$lookup = new \Nickcheek\USPSLookup\USPSLookup('XXXXXXXXX');
 $track = array("9405511206019825745000","9405511206019825304382");
-$find = $lookup->TrackMultiple($track);
+$find = $lookup->Tracking()->trackMultiple($track);
 
 ```
 
 Find City/State that zip code belongs to
 
 ```php
-$lookup = new \Nickcheek\USPSLookup\USPSLookup();
-$find = $lookup->CityState('72019');
+$lookup = new \Nickcheek\USPSLookup\USPSLookup('XXXXXXXXX');
+$find = $lookup->Address()->cityState('72019');
 
 ```
 
@@ -120,16 +120,16 @@ Find City/State of multiple zip codes
 
 ```php
 $zips = array('72204','72203');
-$lookup = new \Nickcheek\USPSLookup\USPSLookup();
-$find = $lookup->CityState($zips);
+$lookup = new \Nickcheek\USPSLookup\USPSLookup('XXXXXXXXX');
+$find = $lookup->Address()->cityState($zips);
 
 ```
 
 Find Zip Code of address
 
 ```php 
-$lookup = new \Nickcheek\USPSLookup\USPSLookup();
-$find = $lookup->ZipCode('1234 Anystreet','','Little Rock','AR');
+$lookup = new \Nickcheek\USPSLookup\USPSLookup('XXXXXXXXX');
+$find = $lookup->Address()->zipCode('1234 Anystreet','','Little Rock','AR');
 	   
 ```
 Get Rate of Package
@@ -138,8 +138,8 @@ Available services:
 First Class,First Class Commercial,First Class  HFP Commercial,Priority,Priority Commercial,Priority Cpp,Priority HFP Commercial,Retail Ground,etc...
 
 ```php
-$lookup = new \Nickcheek\USPSLookup\USPSLookup();
-$find = $lookup->GetRate('72204','37501','1','3','LETTER');
+$lookup = new \Nickcheek\USPSLookup\USPSLookup('XXXXXXXXX');
+$find = $lookup->Price()->getRate('72204','37501','1','3','Priority');
 
 ```
 
