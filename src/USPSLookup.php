@@ -1,18 +1,18 @@
 <?php
 
-namespace USPSLookup;
+namespace Nickcheek\USPSLookup;
 
 class Lookup
 {
+
 	protected  $user;
 
 	public function __construct($user = '')
 	{
+		$this->user = $user;
 		if($user == ''){
 			$this->user = env('USPS');
-		} else {
-            $this->user = $user;
-        }
+		}
 	}
 
     public function Verify($address,$address2,$city,$state,$zip)

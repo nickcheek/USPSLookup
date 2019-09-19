@@ -1,11 +1,11 @@
 <?php
 
-namespace USPSLookup;
+namespace Nickcheek\USPSLookup;
 
 use Illuminate\Support\Facades\Facade;
 
 /**
- * @see USPSLookup\Skeleton\SkeletonClass
+ * @see \Nickcheek\USPSLookup\Skeleton\SkeletonClass
  */
 class USPSLookupFacade extends Facade
 {

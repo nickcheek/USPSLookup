@@ -1,6 +1,6 @@
 <?php
 
-namespace USPSLookup;
+namespace Nickcheek\USPSLookup;
 
 use Illuminate\Support\ServiceProvider;
 
