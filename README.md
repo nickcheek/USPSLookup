@@ -42,6 +42,17 @@ $response = $lookup->Verify('123 Anystreet','','Little Rock','AR','72204');
 var_dump($response);
 
 ```
+If you added the reference at the top of your controller, you can use:
+
+``` php
+$lookup = new USPSLookup('XXXXXXXXX');
+$response = $lookup->Verify('123 Anystreet','','Little Rock','AR','72204');
+
+var_dump($response);
+
+```
+
+
 The above returns the following (I replaced the values with ***):
 ``` php
 "Address2": "3017 P****E"
