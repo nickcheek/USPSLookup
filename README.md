@@ -19,14 +19,7 @@ You can install the package via composer:
 composer require nickcheek/uspslookup
 
 ```
-If you're using laravel, add the service provider to config/app.php
-```php
-Nickcheek\USPSLookup\USPSLookupServiceProvider::class,
-```
-Then the facade
-```php
-'USPSLookup' =>  Nickcheek\USPSLookup\Facades\USPSLookup::class
-```
+
 Then add the reference to the top of your controller
 ```php
 use \Nickcheek\USPSLookup\USPSLookup;

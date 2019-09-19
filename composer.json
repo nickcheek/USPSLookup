@@ -1,5 +1,5 @@
 {
-    "name": "nickcheek/uspslookup",
+    "name": "uspslookup",
     "description": "Address Verify with USPS API",
     "authors": [
         {
@@ -8,10 +8,12 @@
         }
     ],
     "minimum-stability": "dev",
-    "require": {},
+    "require": {
+        "ext-simplexml": "*"
+    },
     "autoload" : {
 	    "psr-4":{
-		    "Nickcheek\\USPSLookup\\": "src/"
+		    "USPSLookup\\": "src/"
 	    }
     }
 }
