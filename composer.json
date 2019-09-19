@@ -1,7 +1,13 @@
 {
     "name": "Nickcheek/USPSlookup",
+    "type": "library",
     "description": "Address Verify with USPS API",
-    "version": "1.1.1",
+    "keywords": [
+        "usps",
+        "mail",
+        "postal"
+    ],
+    "version": "1.1.2",
     "homepage": "https://nicholascheek.com",
     "license": "MIT",
     "authors": [
