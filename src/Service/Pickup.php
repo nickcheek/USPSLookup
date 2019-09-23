@@ -20,7 +20,7 @@ class Pickup extends USPSLookup
         $carrier->addChild('State',$state);
         $carrier->addChild('ZIP5',$zip5);
         $carrier->addChild('ZIP4',$zip4);
-        $url = self::$service . 'CarrierPickupAvailability&XML='.$carrier->asXML();
+        $url = self::$service . 'CarrierPickupAvailability&XML=' . $carrier->asXML();
         return simplexml_load_file($url);
 
     }

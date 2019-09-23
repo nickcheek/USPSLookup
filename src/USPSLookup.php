@@ -2,10 +2,10 @@
 
 namespace Nickcheek\USPSLookup;
 
-use Nickcheek\USPSLookup\Service\Address;
 use Nickcheek\USPSLookup\Service\Price;
-use Nickcheek\USPSLookup\Service\Tracking;
 use Nickcheek\USPSLookup\Service\Pickup;
+use Nickcheek\USPSLookup\Service\Address;
+use Nickcheek\USPSLookup\Service\Tracking;
 
 
 class USPSLookup

@@ -3,11 +3,11 @@
 require __DIR__ . '/vendor/autoload.php';
 
 $lookup = new \Nickcheek\USPSLookup\USPSLookup('XXXXXXXXX');
-$find = $lookup->Verify('3017 Province','','Benton','AR','72019');
-	    
+$find = $lookup->Verify('3005 W 12th','','Little Rock','AR','72204');
+
 
 echo "<pre>";
-var_dump($find); 
+var_dump($find);
 echo "</pre>";
 
 

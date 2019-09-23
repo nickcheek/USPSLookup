@@ -5,7 +5,7 @@ namespace Nickcheek\USPSLookup;
 use Illuminate\Support\Facades\Facade;
 
 /**
- * @see \Nickcheek\USPSLookup\Skeleton\SkeletonClass
+ * @see \Nickcheek\USPSLookup\
  */
 class USPSLookupFacade extends Facade
 {

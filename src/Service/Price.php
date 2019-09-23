@@ -22,7 +22,7 @@ class Price extends USPSLookup
         $pack->addChild('Ounces',$ounces);
         $pack->addChild('Container','VARIABLE');
         $pack->addChild('Size','Regular');
-        $url = self::$service . '&XML=' .$rate->asXML();
+        $url = self::$service . '&XML=' . $rate->asXML();
         return simplexml_load_file($url);
     }
 }
