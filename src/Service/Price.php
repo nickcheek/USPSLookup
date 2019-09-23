@@ -12,7 +12,7 @@ class Price extends USPSLookup
     {
         $rate = new \SimpleXMLElement("<RateV4Request></RateV4Request>");
         $rate->addAttribute('USERID', self::$user);
-        $revision = $rate->addChild("Revision",'2');
+        $rate->addChild("Revision",'2');
         $pack = $rate->addChild('Package');
         $pack->addAttribute('ID','0');
         $pack->addChild('Service',$service);
@@ -22,7 +22,7 @@ class Price extends USPSLookup
         $pack->addChild('Ounces',$ounces);
         $pack->addChild('Container','VARIABLE');
         $pack->addChild('Size','Regular');
-        $url = self::$service . '&XML='.$rate->asXML();
+        $url = self::$service . '&XML=' .$rate->asXML();
         return simplexml_load_file($url);
     }
 }

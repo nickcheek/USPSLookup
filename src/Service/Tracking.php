@@ -14,7 +14,7 @@ class Tracking extends USPSLookup
         $track->addAttribute('USERID', self::$user);
         $pack = $track->addChild('TrackID');
         $pack->addAttribute('ID', $trackingnumber);
-        $url = self::$service . 'TrackV2&XML='.$track->asXML();
+        $url = self::$service . 'TrackV2&XML=' . $track->asXML();
         return simplexml_load_file($url);
     }
 
@@ -26,7 +26,7 @@ class Tracking extends USPSLookup
             $pack = $track->addChild('TrackID');
             $pack->addAttribute('ID', $trackingnumber);
         }
-        $url = self::$service . 'TrackV2&XML='.$track->asXML();
+        $url = self::$service . 'TrackV2&XML=' . $track->asXML();
         return simplexml_load_file($url);
     }
 }
