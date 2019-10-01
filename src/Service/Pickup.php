@@ -8,6 +8,17 @@ class Pickup extends USPSLookup
 {
     public function __construct(){}
 
+    /**
+     * USPS Carrier pickup availability by location.
+     * @param $firm
+     * @param $address
+     * @param $apt
+     * @param $city
+     * @param $state
+     * @param $zip5
+     * @param $zip4
+     * @return SimpleXMLElement
+     */
     public function carrierPickupAvailability($firm,$address,$apt,$city,$state,$zip5,$zip4)
     {
         $carrier = new \SimpleXMLElement('<CarrierPickupAvailabilityRequest></CarrierPickupAvailabilityRequest>');

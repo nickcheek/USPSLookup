@@ -13,6 +13,10 @@ class USPSLookup
     protected static $user;
     protected static $service = 'http://production.shippingapis.com/ShippingAPI.dll?API=';
 
+    /**
+     * USPSLookup constructor.
+     * @param string $user
+     */
     public function __construct($user = '')
     {
         self::$user = $user;

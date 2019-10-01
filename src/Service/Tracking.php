@@ -8,6 +8,11 @@ class Tracking extends USPSLookup
 {
     public function __construct(){}
 
+    /**
+     * Tracking a package by USPS Tracking number
+     * @param $trackingnumber
+     * @return \SimpleXMLElement
+     */
     public static function track($trackingnumber)
     {
         $track = new \SimpleXMLElement("<TrackRequest></TrackRequest>");
@@ -18,6 +23,11 @@ class Tracking extends USPSLookup
         return simplexml_load_file($url);
     }
 
+    /**
+     * Tracking more than one package by USPS Tracking number array
+     * @param $trackingarray (Array)
+     * @return \SimpleXMLElement
+     */
     public static function trackMultiple($trackingarray)
     {
         $track = new \SimpleXMLElement("<TrackRequest></TrackRequest>");

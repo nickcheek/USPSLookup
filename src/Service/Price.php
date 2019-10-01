@@ -8,6 +8,19 @@ class Price extends USPSLookup
 {
     public function __construct(){}
 
+    /**
+     * Check the price on package delivery depending on method.  Available methods include:
+     * First Class,First Class Commercial, First Class  HFP Commercial,Priority,Priority Commercial
+     * Priority Cpp,Priority HFP Commercial, Priority HFP CPP,Priority Mail Express,Priority Mail Express Commercial
+     * Priority Mail Express CPP,Priority Mail Express Sh, Priority Mail Express Sh Commercial, Priority Mail Express HFP
+     * Priority Mail Express HFP Commercial, Priority Mail Express HFP CPP, Priority Mail Cubic, Retail Ground, Media, Library, All, Online,Plus,BPM
+     * @param $to
+     * @param $from
+     * @param $pounds
+     * @param $ounces
+     * @param $service
+     * @return \SimpleXMLElement
+     */
     public static function getRate($to,$from,$pounds,$ounces,$service)
     {
         $rate = new \SimpleXMLElement("<RateV4Request></RateV4Request>");

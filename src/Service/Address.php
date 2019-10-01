@@ -8,6 +8,15 @@ class Address extends USPSLookup
 {
     public function __construct(){}
 
+    /**
+     * Verify Address is current and/or inhabited
+     * @param $address
+     * @param $address2
+     * @param $city
+     * @param $state
+     * @param $zip
+     * @return \SimpleXMLElement
+     */
     public static function Verify($address,$address2,$city,$state,$zip)
     {
         $Address = new \SimpleXMLElement("<AddressValidateRequest></AddressValidateRequest>");
@@ -26,6 +35,11 @@ class Address extends USPSLookup
         return $response;
     }
 
+    /**
+     * City and State lookup from zipcode.
+     * @param $zip
+     * @return \SimpleXMLElement
+     */
     public static function CityState($zip)
     {
         $CityState = new \SimpleXMLElement("<CityStateLookupRequest></CityStateLookupRequest>");
@@ -38,6 +52,11 @@ class Address extends USPSLookup
         return $response;
     }
 
+    /**
+     * Mulitple city and state lookup
+     * @param $zip (array)
+     * @return \SimpleXMLElement
+     */
     public static function CityStateMultiple($zip)
     {
         $CityState = new \SimpleXMLElement("<CityStateLookupRequest></CityStateLookupRequest>");
@@ -52,6 +71,14 @@ class Address extends USPSLookup
         return $response;
     }
 
+    /**
+     * Zipcode lookup by Address, City, and State
+     * @param $address
+     * @param $address2
+     * @param $city
+     * @param $state
+     * @return \SimpleXMLElement
+     */
     public static function ZipCode($address,$address2,$city,$state)
     {
         $Address = new \SimpleXMLElement("<ZipCodeLookupRequest></ZipCodeLookupRequest>");
