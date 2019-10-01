@@ -24,11 +24,5 @@
 	    "psr-4":{
 		    "Nickcheek\\USPSLookup\\": "src/"
 	    }
-    },
-    "package": {
-        "Nickcheek/USPSLookup": {
-            "dev-master": { @composer.json },
-            "2.0.1": { @composer.json }
-        }
     }
 }
