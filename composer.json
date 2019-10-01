@@ -7,7 +7,7 @@
         "mail",
         "postal"
     ],
-    "version": "1.1.2",
+    "version": "2.0.1",
     "homepage": "https://nicholascheek.com",
     "license": "MIT",
     "authors": [
@@ -24,5 +24,11 @@
 	    "psr-4":{
 		    "Nickcheek\\USPSLookup\\": "src/"
 	    }
+    },
+    "package": {
+        "Nickcheek/USPSLookup": {
+            "dev-master": { @composer.json },
+            "2.0.1": { @composer.json }
+        }
     }
 }
