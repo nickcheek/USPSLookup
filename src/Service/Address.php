@@ -31,8 +31,7 @@ class Address extends USPSLookup
         $add->addChild('Zip5',$zip);
         $add->addChild('Zip4');
         $url = self::$service . 'Verify&XML=' . $Address->asXML();
-        $response = simplexml_load_file($url);
-        return $response;
+        return simplexml_load_file($url);
     }
 
     /**
@@ -48,8 +47,7 @@ class Address extends USPSLookup
         $ZipCode->addAttribute('ID', '0');
         $ZipCode->addChild('Zip5',$zip);
         $url = self::$service . 'CityStateLookup&XML=' . $CityState->asXML();
-        $response = simplexml_load_file($url);
-        return $response;
+        return simplexml_load_file($url);
     }
 
     /**
@@ -67,8 +65,7 @@ class Address extends USPSLookup
             $ZipCode->addChild('Zip5',$v);
         }
         $url = self::$service . 'CityStateLookup&XML=' . $CityState->asXML();
-        $response = simplexml_load_file($url);
-        return $response;
+        return simplexml_load_file($url);
     }
 
     /**
@@ -90,7 +87,6 @@ class Address extends USPSLookup
         $add->addChild('City',$city);
         $add->addChild('State',$state);
         $url = self::$service . 'ZipCodeLookup&XML=' . $Address->asXML();
-        $response = simplexml_load_file($url);
-        return $response;
+        return simplexml_load_file($url);
     }
 }
