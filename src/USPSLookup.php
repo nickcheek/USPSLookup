@@ -17,12 +17,9 @@ class USPSLookup
      * USPSLookup constructor.
      * @param string $user
      */
-    public function __construct($user = '')
+    public function __construct($user)
     {
         self::$user = $user;
-        if($user == ''){
-            self::$user = env('USPS');
-        }
     }
 
     public function Address()
