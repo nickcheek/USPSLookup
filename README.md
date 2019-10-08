@@ -24,25 +24,10 @@ Then add the reference to the top of your controller
 ```php
 use \Nickcheek\USPSLookup\USPSLookup;
 ```
-If you're using laravel, you can add your Username to your env file
-
-
-
-```bash
-USPS=xxxxxxxxxx
-```
 
 ## Usage
-If you're not using laravel, you can set the USPS username instead of using the .env file.
 
-``` php
-$lookup = new \Nickcheek\USPSLookup\USPSLookup('XXXXXXXXX');
-$response = $lookup->Address()->verify('123 Anystreet','','Little Rock','AR','72204');
-
-var_dump($response);
-
-```
-If you added the reference at the top of your controller, you can use:
+Set the USPS Username while creating the object:
 
 ``` php
 $lookup = new USPSLookup('XXXXXXXXX');
@@ -69,17 +54,6 @@ The above returns the following (I replaced the values with ***):
     +"CentralDeliveryPoint": "N"
     +"Vacant": "N"
 ```
-If you are using laravel and set your username in your .env file, you can call the class without it.
-
-``` php
-
-$lookup = new USPSLookup();
-$response = $lookup->Address()->verify('123 Anystreet','','Little Rock','AR','72204');
-
-var_dump($response);
-
-```
-
 
 ### Available Methods
 Verify Address exists
