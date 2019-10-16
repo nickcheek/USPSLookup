@@ -6,8 +6,6 @@ use Nickcheek\USPSLookup\USPSLookup;
 
 class Address extends USPSLookup
 {
-    public function __construct(){}
-
     /**
      * Verify Address is current and/or inhabited
      * @param $address
@@ -15,7 +13,7 @@ class Address extends USPSLookup
      * @param $city
      * @param $state
      * @param $zip
-     * @return \SimpleXMLElement
+     * @return SimpleXMLElement
      */
     public static function Verify($address,$address2,$city,$state,$zip)
     {

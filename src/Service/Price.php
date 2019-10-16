@@ -6,8 +6,6 @@ use Nickcheek\USPSLookup\USPSLookup;
 
 class Price extends USPSLookup
 {
-    public function __construct(){}
-
     /**
      * Check the price on package delivery depending on method.  Available methods include:
      * First Class,First Class Commercial, First Class  HFP Commercial,Priority,Priority Commercial

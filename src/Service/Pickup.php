@@ -6,8 +6,6 @@ use Nickcheek\USPSLookup\USPSLookup;
 
 class Pickup extends USPSLookup
 {
-    public function __construct(){}
-
     /**
      * USPS Carrier pickup availability by location.
      * @param $firm

@@ -6,8 +6,6 @@ use Nickcheek\USPSLookup\USPSLookup;
 
 class Tracking extends USPSLookup
 {
-    public function __construct(){}
-
     /**
      * Tracking a package by USPS Tracking number
      * @param $trackingnumber

@@ -1,11 +1,12 @@
 {
     "name": "nickcheek/usps-lookup",
     "type": "library",
-    "description": "Address Verify with USPS API",
+    "description": "Php Wrapper for USPS API",
     "keywords": [
         "usps",
         "mail",
-        "postal"
+        "address",
+        "api"
     ],
     "homepage": "https://nicholascheek.com",
     "license": "MIT",
@@ -17,7 +18,8 @@
     ],
     "minimum-stability": "dev",
     "require": {
-        "ext-simplexml": "*"
+        "ext-simplexml": "*",
+        "ext-curl": "*"
     },
     "autoload" : {
 	    "psr-4":{

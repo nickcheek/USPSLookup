@@ -22,24 +22,36 @@ class USPSLookup
         self::$user = $user;
     }
 
+    /**
+     * @return Address
+     */
     public function Address()
     {
-        return new Address();
+        return new Address(self::$user);
     }
 
+    /**
+     * @return Tracking
+     */
     public function Tracking()
     {
-        return new Tracking();
+        return new Tracking(self::$user);
     }
 
+    /**
+     * @return Price
+     */
     public function Price()
     {
-        return new Price();
+        return new Price(self::$user);
     }
 
+    /**
+     * @return Pickup
+     */
     public function Pickup()
     {
-        return new Pickup();
+        return new Pickup(self::$user);
     }
 
 }
