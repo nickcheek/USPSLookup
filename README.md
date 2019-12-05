@@ -60,7 +60,7 @@ Verify Address exists
 
 ``` php
 $lookup = new \Nickcheek\USPSLookup\USPSLookup('XXXXXXXXX');
-$find = $lookup->Verify($address,$address2,$city,$state,$zip);
+$find = $lookup->verify($address,$address2,$city,$state,$zip);
 
 ```
 
