@@ -65,7 +65,7 @@ $find = $lookup->verify($address,$address2,$city,$state,$zip);
 ```
 
 
-Track a Package
+Tracking a Package
 
 ``` php
 $lookup = new \Nickcheek\USPSLookup\USPSLookup('XXXXXXXXX');
@@ -73,7 +73,7 @@ $find = $lookup->Tracking()->track('9405511206019825745000');
 
 ```
 
-Track Multiple Packages
+Tracking Multiple Packages
 
 ``` php
 $lookup = new \Nickcheek\USPSLookup\USPSLookup('XXXXXXXXX');
