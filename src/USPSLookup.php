@@ -10,48 +10,48 @@ use Nickcheek\USPSLookup\Service\Tracking;
 
 class USPSLookup
 {
-    protected static $user;
-    protected static $service = 'http://production.shippingapis.com/ShippingAPI.dll?API=';
+    protected static string $USPSuser;
+    protected static string $service = 'http://production.shippingapis.com/ShippingAPI.dll?API=';
 
     /**
      * USPSLookup constructor.
-     * @param string $user
+     * @param string self::$$USPSuser
      */
-    public function __construct($user)
+    public function __construct($USPSuser)
     {
-        self::$user = $user;
+        self::$USPSuser = $USPSuser;
     }
 
     /**
      * @return Address
      */
-    public function Address()
+    public function Address(): object
     {
-        return new Address(self::$user);
+        return new Address(self::$USPSuser);
     }
 
     /**
      * @return Tracking
      */
-    public function Tracking()
+    public function Tracking(): object
     {
-        return new Tracking(self::$user);
+        return new Tracking(self::$USPSuser);
     }
 
     /**
      * @return Price
      */
-    public function Price()
+    public function Price(): object
     {
-        return new Price(self::$user);
+        return new Price(self::$USPSuser);
     }
 
     /**
      * @return Pickup
      */
-    public function Pickup()
+    public function Pickup(): object
     {
-        return new Pickup(self::$user);
+        return new Pickup(self::$USPSuser);
     }
 
 }

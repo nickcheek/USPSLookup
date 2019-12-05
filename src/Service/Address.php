@@ -13,12 +13,12 @@ class Address extends USPSLookup
      * @param $city
      * @param $state
      * @param $zip
-     * @return SimpleXMLElement
+     * @return object
      */
-    public static function Verify($address,$address2,$city,$state,$zip)
+    public static function verify($address,$address2,$city,$state,$zip): object
     {
         $Address = new \SimpleXMLElement("<AddressValidateRequest></AddressValidateRequest>");
-        $Address->addAttribute('USERID', self::$user);
+        $Address->addAttribute('USERID', self::$USPSuser);
         $Address->addChild('Revision','1');
         $add = $Address->addChild('Address');
         $add->addAttribute('ID', '0');
@@ -37,10 +37,10 @@ class Address extends USPSLookup
      * @param $zip
      * @return \SimpleXMLElement
      */
-    public static function CityState($zip)
+    public static function cityState($zip): object
     {
         $CityState = new \SimpleXMLElement("<CityStateLookupRequest></CityStateLookupRequest>");
-        $CityState->addAttribute('USERID', self::$user);
+        $CityState->addAttribute('USERID', self::$USPSuser);
         $ZipCode = $CityState->addChild('ZipCode');
         $ZipCode->addAttribute('ID', '0');
         $ZipCode->addChild('Zip5',$zip);
@@ -53,10 +53,10 @@ class Address extends USPSLookup
      * @param $zip (array)
      * @return \SimpleXMLElement
      */
-    public static function CityStateMultiple($zip)
+    public static function cityStateMultiple($zip): object
     {
         $CityState = new \SimpleXMLElement("<CityStateLookupRequest></CityStateLookupRequest>");
-        $CityState->addAttribute('USERID', self::$user);
+        $CityState->addAttribute('USERID', self::$USPSuser);
         foreach($zip as $k=>$v){
             $ZipCode = $CityState->addChild('ZipCode');
             $ZipCode->addAttribute('ID', $k);
@@ -74,10 +74,10 @@ class Address extends USPSLookup
      * @param $state
      * @return \SimpleXMLElement
      */
-    public static function ZipCode($address,$address2,$city,$state)
+    public static function zipCode($address,$address2,$city,$state): object
     {
         $Address = new \SimpleXMLElement("<ZipCodeLookupRequest></ZipCodeLookupRequest>");
-        $Address->addAttribute('USERID', self::$user);
+        $Address->addAttribute('USERID', self::$USPSuser);
         $add = $Address->addChild('Address');
         $add->addAttribute('ID', '0');
         $add->addChild('Address1',$address);

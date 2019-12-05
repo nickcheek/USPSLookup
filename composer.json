@@ -19,7 +19,8 @@
     "minimum-stability": "dev",
     "require": {
         "ext-simplexml": "*",
-        "ext-curl": "*"
+        "ext-curl": "*",
+        "php": "7.4"
     },
     "autoload" : {
 	    "psr-4":{
