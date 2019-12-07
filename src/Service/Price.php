@@ -19,7 +19,7 @@ class Price extends USPSLookup
      * @param $service
      * @return \SimpleXMLElement
      */
-    public static function getRate($to,$from,$pounds,$ounces,$service): object
+    public static function getRate(int $to,int $from,int $pounds,int $ounces,string $service): object
     {
         $rate = new \SimpleXMLElement("<RateV4Request></RateV4Request>");
         $rate->addAttribute('USERID', self::$USPSuser);

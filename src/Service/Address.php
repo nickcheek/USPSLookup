@@ -15,7 +15,7 @@ class Address extends USPSLookup
      * @param $zip
      * @return object
      */
-    public static function verify($address,$address2,$city,$state,$zip): object
+    public static function verify(string $address, string $address2, string $city, string $state, int $zip): object
     {
         $Address = new \SimpleXMLElement("<AddressValidateRequest></AddressValidateRequest>");
         $Address->addAttribute('USERID', self::$USPSuser);
@@ -37,7 +37,7 @@ class Address extends USPSLookup
      * @param $zip
      * @return \SimpleXMLElement
      */
-    public static function cityState($zip): object
+    public static function cityState(int $zip): object
     {
         $CityState = new \SimpleXMLElement("<CityStateLookupRequest></CityStateLookupRequest>");
         $CityState->addAttribute('USERID', self::$USPSuser);
@@ -53,11 +53,11 @@ class Address extends USPSLookup
      * @param $zip (array)
      * @return \SimpleXMLElement
      */
-    public static function cityStateMultiple($zip): object
+    public static function cityStateMultiple(array $ziparray): object
     {
         $CityState = new \SimpleXMLElement("<CityStateLookupRequest></CityStateLookupRequest>");
         $CityState->addAttribute('USERID', self::$USPSuser);
-        foreach($zip as $k=>$v){
+        foreach($ziparray as $k=>$v){
             $ZipCode = $CityState->addChild('ZipCode');
             $ZipCode->addAttribute('ID', $k);
             $ZipCode->addChild('Zip5',$v);
@@ -74,7 +74,7 @@ class Address extends USPSLookup
      * @param $state
      * @return \SimpleXMLElement
      */
-    public static function zipCode($address,$address2,$city,$state): object
+    public static function zipCode(string $address,string $address2,string $city,string $state): object
     {
         $Address = new \SimpleXMLElement("<ZipCodeLookupRequest></ZipCodeLookupRequest>");
         $Address->addAttribute('USERID', self::$USPSuser);

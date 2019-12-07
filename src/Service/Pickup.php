@@ -17,7 +17,7 @@ class Pickup extends USPSLookup
      * @param $zip4
      * @return \SimpleXMLElement
      */
-    public function carrierPickupAvailability($firm,$address,$apt,$city,$state,$zip5,$zip4): object
+    public function carrierPickupAvailability(string $firm,string $address,string $apt,string $city,string $state,int $zip5,int $zip4): object
     {
         $carrier = new \SimpleXMLElement('<CarrierPickupAvailabilityRequest></CarrierPickupAvailabilityRequest>');
         $carrier->addAttribute('USERID', self::$USPSuser);

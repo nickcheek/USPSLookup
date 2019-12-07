@@ -11,7 +11,7 @@ class Tracking extends USPSLookup
      * @param $trackingnumber
      * @return \SimpleXMLElement
      */
-    public static function track($trackingnumber): object
+    public static function track(string $trackingnumber): object
     {
         $track = new \SimpleXMLElement("<TrackRequest></TrackRequest>");
         $track->addAttribute('USERID', self::$USPSuser);
@@ -26,7 +26,7 @@ class Tracking extends USPSLookup
      * @param $trackingarray (Array)
      * @return \SimpleXMLElement
      */
-    public static function trackMultiple($trackingarray): object
+    public static function trackMultiple(array $trackingarray): object
     {
         $track = new \SimpleXMLElement("<TrackRequest></TrackRequest>");
         $track->addAttribute('USERID', self::$USPSuser);
