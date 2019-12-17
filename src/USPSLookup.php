@@ -2,11 +2,7 @@
 
 namespace Nickcheek\USPSLookup;
 
-use Nickcheek\USPSLookup\Service\Price;
-use Nickcheek\USPSLookup\Service\Pickup;
-use Nickcheek\USPSLookup\Service\Address;
-use Nickcheek\USPSLookup\Service\Tracking;
-
+use Nickcheek\USPSLookup\Service\{Price, Pickup, Address, Tracking};
 
 class USPSLookup
 {
@@ -15,7 +11,7 @@ class USPSLookup
 
     /**
      * USPSLookup constructor.
-     * @param string self::$$USPSuser
+     * @param string self::$USPSuser
      */
     public function __construct($USPSuser)
     {
